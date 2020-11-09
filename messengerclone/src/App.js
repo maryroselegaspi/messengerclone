@@ -1,23 +1,39 @@
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
 
 function App() {
+  const [input, setInput] = useState('');
+  const[messages, setMessages]= useState(['Hi', 'Ther']);
+
+  const SendMessage =(event) =>{
+    // all the logic to send the message
+
+    event.preventDefault(); //to prevent refresh everytime enter is hit
+    // spread operator => keep all the messages but append the latest to the end
+    setMessages([...messages, input])
+    setInput(''); //to clear the input
+  }
+  console.log(input)
+  console.log((messages))
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>this is React</h1>
+      {/* Input */}
+      {/* button */}
+      {/* messages */}
+      {/* To enable enter key to function instead of clicking the button-- wrap in a form */}
+      <form>
+        <input value={input} onChange={event => setInput(event.target.value)}>
+        </input>
+        <button type='submit' onClick={SendMessage}>SendMessage</button>
+      </form>
+      {/* Messages themselves */}
+      {
+       messages.map(message => (
+         <p>{message}</p>
+       )) 
+      }
+    
     </div>
   );
 }
