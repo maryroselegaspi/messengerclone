@@ -51,7 +51,7 @@ function App() {
       {
        messages.map(message => (
         //  <p>{message}</p>
-        <Message username={message.username} text={message.text} />
+        <Message username={username} message ={message} />
        ))
       }
     
