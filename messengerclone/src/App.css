@@ -11,3 +11,15 @@
   width: 100%;
   margin: 20px;
 }
+
+.app__formControl {
+  display: flex !important; /*to override material ui style*/
+  flex-direction: row !important;
+}
+.app__iconButton {
+  flex: 0;
+}
+
+.app__input {
+  flex: 1;
+}

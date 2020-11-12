@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { Button, FormControl, InputLabel, Input } from '@material-ui/core';
+import { Button, FormControl, InputLabel, Input, TextField   } from '@material-ui/core';
 import './App.css';
 import Message from './Message';
 import db from './firebase';
@@ -58,7 +58,7 @@ function App() {
   return (
     <div className="App">
       <img src='https://i.pinimg.com/originals/3f/15/06/3f1506cc4c75f0fd5ac6aead47bb2417.png' />
-      <h1>this is React</h1>
+      <h1>Facebook Messenger!</h1>
       {/* Input */}
       {/* button */}
       {/* messages */}
@@ -66,19 +66,17 @@ function App() {
       <h2>Welcome {username}</h2>
       {/* To enable enter key to function instead of clicking the button-- wrap in a form */}
       <form className='app__form'>
-        <FormControl>
-          <InputLabel>Enter a message...</InputLabel>
-          <Input   value={input} onChange={event => setInput(event.target.value)}/>
-          <IconButton disabled={!input} type='submit' color='primary' onClick={SendMessage} variant='outlined' className='app__button' >
+        <FormControl className='app__formControl'>
+          <Input  className='app__input' placeholder='Enter a message...' value={input} onChange={event => setInput(event.target.value)}/>
+          <IconButton className='app__iconButton' disabled={!input} type='submit' color='primary' onClick={SendMessage} variant='outlined' className='app__button' >
             <SendIcon/>
           </IconButton>
-          {/* <Button disabled={!input}variant='contained' color='primary' type='submit' onClick={SendMessage}>SendMessage</Button> */}
         </FormControl>
       </form>
      <FlipMove>
       {
         messages.map(({id, message}) => (
-          <Message key={id} username={username} message ={message} />
+          <Message key={id} username={username} message ={message} id={id} />
         ))
         }
      </FlipMove>

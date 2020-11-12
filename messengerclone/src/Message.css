@@ -1,13 +1,18 @@
 .message {
   padding: 10px;
   margin: 10px;
-  width: fit-content;
+  /* width: fit-content; */
+  width: 60%;
+  display: flex;
+  /* flex-direction: column; */
+  /* border: 1px solid orange; */
+  word-wrap: break-word;
 }
-
 .message__user {
   margin-left: auto;
   color: white;
   text-align: left !important;
+  margin-right: 5px;
 }
 
 .message__userCard {
@@ -16,4 +21,13 @@
 
 .message__guestCard {
   background-color: #e9e9eb !important;
+  flex-direction: column;
+}
+
+.message__guestCardName {
+  color: blue;
+  text-align: left;
+}
+.message__card {
+  padding: -30px;
 }
